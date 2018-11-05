@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
+<?php
 
-<body>
+$title = 'Detail du post';
+ob_start();
+
+?>
+
 <h1>Mon super blog !</h1>
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -31,7 +29,10 @@ while ($comment = $comments->fetch())
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
     <?php
 }
+
+$content = ob_get_clean();
+
+require('template.php');
+
 ?>
-</body>
-</html>
 

@@ -5,18 +5,12 @@
  * Date: 29/10/2018
  * Time: 16:48
  */
+
+$title = 'Page d\'accueil';
+ob_start();
+
 ?>
 
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Mon premier blog</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-
-	<body>
 		<h1>Mon super blog !</h1>
 		<p>
 			Derniers billets du blog :
@@ -32,14 +26,15 @@
 					<p>
 					<?= $donnee['content'] ?>
 					<br/>
-					<a href="post.php?id=<?= $donnee['id'] ?>">Commentaire</a>
+					<a href="index.php?action=post&id=<?= $donnee['id'] ?>">Commentaire</a>
 					</p>
 				</div>
 				<?php
 
 			}
+
+$content = 	ob_get_clean();
+
+require('template.php');
+
 		?>
-
-
-	</body>
-</html>
